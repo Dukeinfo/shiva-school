@@ -45,8 +45,11 @@
                             <li class="d-inline-block align-middle margin-25px-right"><i class="feather icon-feather-folder text-orange margin-10px-right"></i><a href="javascript:void()">{{ getBlogCategory($record->category_id) ?? '' }}</a></li>
                             <li class="d-inline-block align-middle"><i class="feather icon-feather-user text-orange margin-10px-right"></i>By <a href="javascript:void()">Administrator</a></li>
                         </ul>
+
+
+
                         <h5 class="alt-font font-weight-500 text-extra-dark-gray margin-4-half-rem-bottom">{{$record->title}}</h5>
-                        <img src="{{asset('assets')}}/images/blog1.jpg" alt="" class="w-100 border-radius-6px margin-4-half-rem-bottom">
+                        <img src="{{ isset($record->image) ? getBlogImage($record->image) : asset('no_image.jpg') }}" alt="" class="w-100 border-radius-6px margin-4-half-rem-bottom">
                         {!!$record->description!!}
                         
                     </div>
