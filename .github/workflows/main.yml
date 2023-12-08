@@ -37,5 +37,3 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /
-      - name: Run Migrations
-        run: php artisan migrate:fresh --seed
