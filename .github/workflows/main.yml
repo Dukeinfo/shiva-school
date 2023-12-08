@@ -18,7 +18,8 @@ jobs:
           sed -i "s/DB_DATABASE=.*/DB_DATABASE=${{ secrets.DB_DATABASE }}/" .env
           sed -i "s/DB_USERNAME=.*/DB_USERNAME=${{ secrets.DB_USERNAME }}/" .env
           sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/" .env
-           echo "APP_ENV=production" >> .env  # Add this line to set APP_ENV to production
+           sed -i "s/APP_ENV=.*/APP_ENV=production/" .env
+           sed -i "s/APP_DEBUG=.*/APP_DEBUG=false/" .env
       - name: Install Dependencies
         run: composer update --ignore-platform-reqs
       - name: Generate key
