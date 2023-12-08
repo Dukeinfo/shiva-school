@@ -30,8 +30,6 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
       - name: Clear Application Cache
         run: php artisan cache:clear
-      - name: Run Migrations
-        run: php artisan migrate:fresh --seed
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
@@ -39,3 +37,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /
+      - name: Run Migrations
+        run: php artisan migrate:fresh --seed
