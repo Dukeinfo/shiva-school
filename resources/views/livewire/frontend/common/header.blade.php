@@ -78,13 +78,15 @@ $contactInfo = App\Models\ContactInfo::orderBy('id','desc')->where('status','Act
             </button>
             <div class=" collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav alt-font">
-                  @php
- $menus = App\Models\Menu::orderBy('sort_id','asc')->where('status','Active')->get();     
+@php
+$menus = App\Models\Menu::orderBy('sort_id','asc')->where('status','Active')->get();     
 @endphp    
           @if(isset($menus) )
             @foreach($menus as $menu)
 
 @php
+$submenusTotal =App\Models\Submenu::where('menu_id', $menu->id)->count();
+
  $submenus = App\Models\Submenu::with(['Menu'])->where('cms', 'No')
             ->where('menu_id', $menu->id)
             ->orderBy('sort_id', 'asc')
@@ -101,12 +103,12 @@ $getpage = App\Models\CreatePage::where('menu_id', $menu->id)
             ->get();
 
 @endphp
-                @if(count($submenus)==0)
-                    <li class="nav-item"> 
-                 @else 
+
+
+                 
                 <!--add dropdown class if menu has submenus -->
-                    <li class="nav-item dropdown simple-dropdown">  
-                @endif     
+                 <li class="@if($submenusTotal==0)  nav-item @else nav-item dropdown simple-dropdown @endif">  
+                    
                 @if(isset($menu->link) ) 
                 <!-- if menu has link -->
                     <a href="{{ !empty($menu->link) ? route($menu->link) : '#' }}" class="nav-link text-uppercase">{{$menu->name ?? ''}} </a>
@@ -126,6 +128,8 @@ $getpage = App\Models\CreatePage::where('menu_id', $menu->id)
                             @endif
                            @endforeach 
                         <!-- subenus from create page end --> 
+
+
                         <!-- submenus start -->
                       @if(isset($submenus) )   
                            @foreach($submenus as $submenu)
