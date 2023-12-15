@@ -232,8 +232,9 @@
                                             <th>#</th>
                                             <th> Menu</th>
                                             <th>Image</th>
+                                            <th>Parent Sub Menu</th>
                                             <th>Sub Menu</th>
-                                            
+                                           
                                             <th>CMS</th>
                                             <th>Page Name</th>
                                             <th>Sorting Order#</th>
@@ -253,8 +254,9 @@
                                                 <img src="{{isset($record->thumbnail) ?  getThumbnail($record->thumbnail) : asset('no_image.jpg')}}" alt="Image" width="100" height="70"/>
                                             
                                             </td>
+                                             <td>{{$record->SubMenu->name ?? '' }}</td>
                                             <td>{{$record->name ?? '' }}</td>
-                                          
+                                            
                                             <td>{{$record->cms ?? '' }}</td>
                                             <td>{{$record->pname ?? '' }}</td>
                                             <td>{{$record->sort_id ?? '' }}</td>

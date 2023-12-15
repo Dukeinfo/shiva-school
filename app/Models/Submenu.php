@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Menu;
+use App\Models\Submenu;
 class Submenu extends Model
 {
     use HasFactory;
@@ -17,6 +18,10 @@ class Submenu extends Model
      public function Menu()
     {
         return $this->belongsTo(Menu::class,'menu_id','id');
+    }
+      public function SubMenu()
+    {
+        return $this->belongsTo(Submenu::class,'parent_id','id');
     }
     public function getCreatePages(){
         return $this->hasMany(CreatePage::class);
