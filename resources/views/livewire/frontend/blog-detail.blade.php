@@ -1,6 +1,6 @@
 <div>
       <!-- Main Content -->
-    <section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
+<section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
     <div class="opacity-full bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row align-items-stretch justify-content-center small-screen">
@@ -13,6 +13,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 <section class="wow animate__fadeIn bg-light-gray padding-30px-tb sm-padding-20px-tb page-title-small" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">

@@ -120,7 +120,7 @@ $getpage = App\Models\CreatePage::where('menu_id', $menu->id)
                         <ul class="dropdown-menu" role="menu">
                         <!-- subenus from create page -->  
                         @foreach($getpage as $page)
-                           @if($page->SubMenu->cms == 'Yes' && $page->SubMenu->status == 'Active' )    
+                           @if($page->SubMenu->cms == 'Yes' && $page->SubMenu->status == 'Active' && $page->SubMenu->parent_id == NULL)    
                             <li class="dropdown">
                                 <a href="{{ route('detail_page', ['page_id' => $page->id ?? '', 'slug' => $page->SubMenu->slug ?? '']) }}">{{$page->SubMenu->name ?? ''}}</a>
                             </li>
@@ -130,19 +130,19 @@ $getpage = App\Models\CreatePage::where('menu_id', $menu->id)
                         <!-- subenus from create page end --> 
 
 
-                        <!-- submenus start -->
+                <!-- submenus start -->
                       @if(isset($submenus) )   
                            @foreach($submenus as $submenu)
                                 @php
                                  $checkParent = App\Models\Submenu::
                                              where('parent_id', $submenu->id)
+                                            ->where('cms', 'No')
                                             ->where('status', 'Active')
                                             ->first();
 
 
                                 @endphp            
-                             <li class="dropdown">
-
+                    <li class="dropdown">
                             @if(isset($checkParent) )
                             <a data-bs-toggle="dropdown" href="javascript:void(0);">{{$submenu->name ?? ''}}
                             @else
@@ -155,25 +155,56 @@ $getpage = App\Models\CreatePage::where('menu_id', $menu->id)
                         </a>
                            <!-- nested submenus check -->
                             @if(isset($checkParent) )
-                              @php
+                            <ul class="dropdown-menu">
+                            <!-- nested submenus start cms=Yes-->
+                                 @php
                                  $nestedSubmenus = App\Models\Submenu::
                                              where('parent_id', $submenu->id)
+                                            ->where('cms', 'Yes')
                                             ->where('status', 'Active')
                                             ->get();
-                                @endphp
-                                <!-- nested submenus start --> 
-                                <ul class="dropdown-menu">
-                                    @if(isset($nestedSubmenus) )
+                                 @endphp   
+                                 @if(isset($nestedSubmenus) )
                                       @foreach($nestedSubmenus as $nested)
-                                    <li><a href="{{ isset($nested->pname) ? route($nested->pname) : '#' }}">{{$nested->name ?? ''}}</a></li>
+                                    @php
+                                     $nestedlink = App\Models\CreatePage::where('submenu_id', $nested->id)
+                                    ->with(['SubMenu'])
+                                    ->orderBy('sort_id', 'asc')
+                                    ->where('status', 'Active')
+                                    ->first();
+                                    @endphp
+
+                                    @if(isset($nestedlink))
+                                    @if($nestedlink->SubMenu->cms == 'Yes' && $nestedlink->SubMenu->status == 'Active' ) 
+                                    <li><a href="{{ route('detail_page', ['page_id' => $nestedlink->id ?? '', 'slug' => $nestedlink->SubMenu->slug ?? '']) }}">{{$nested->name ?? ''}} </a></li>
+                                    @endif 
+                                   @endif   
                                      @endforeach
-                                   @endif
+                                @endif
+                                <!-- nested submenus end cms=Yes -->
+ 
+                               <!-- nested submenus start cms=No-->
+                                 @php
+                                 $nestedSubmenus = App\Models\Submenu::
+                                             where('parent_id', $submenu->id)
+                                             ->where('cms', 'No')
+                                            ->where('status', 'Active')
+                                            ->get();
+                                 @endphp   
+                                 @if(isset($nestedSubmenus) )
+                                      @foreach($nestedSubmenus as $nested)
+                                   <li><a href="{{ isset($nested->pname) ? route($nested->pname) : '#' }}">{{$nested->name ?? ''}} </a></li>
+                                     @endforeach
+                                @endif
+                                 <!-- nested submenus end cms=No -->
                                 </ul>
                                 @endif
-                                  <!-- nested submenus end -->
+                            <!-- nested submenus check end-->   
                             </li>
                            @endforeach
                        <!-- submenus end -->
+
+
                      @endif      
                         </ul>
                     </li>

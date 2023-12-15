@@ -99,12 +99,12 @@ $page = App\Models\CreatePage::where('submenu_id', $submenu->id)
 
 
 
-                <li class="padding-15px-bottom border-bottom border-color-medium-gray">
+                <li class="padding-5px-tb">
                  @if($page)
-                         <a href="{{ route('detail_page', ['page_id' => $page->id ?? '', 'slug' => $page->SubMenu->slug ?? '']) }}" class="text-tussock-hover">
+                         <a href="{{ route('detail_page', ['page_id' => $page->id ?? '', 'slug' => $page->SubMenu->slug ?? '']) }}" class="btn btn-large btn-transparent-royal-light-gray w-100">
                   @else 
 
-                        <a href="javascript:void()" class="text-tussock-hover">
+                        <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">
                   @endif                        
                                         
                     {{Str::title( $submenu->name) }}
@@ -127,9 +127,7 @@ $page = App\Models\CreatePage::where('submenu_id', $submenu->id)
                     @endif
 
 
-                    <h5 class="alt-font text-dark-purple font-weight-600 w-85 margin-30px-bottom xl-w-100">
-
-                    {!! $data->heading ?? "" !!}</h5>
+                    <h5 class="alt-font text-extra-dark-gray font-weight-600 w-85 margin-30px-bottom xl-w-100">{!! $data->heading ?? "" !!}</h5>
 
                     <p>{!! $data->description ?? "" !!}</p>
 
