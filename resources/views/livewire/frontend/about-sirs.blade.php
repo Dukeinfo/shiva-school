@@ -47,16 +47,16 @@
 
                         <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray my-4">
                             <li class="padding-5px-bottom">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">About SIRS</a>
+                                <a href="{{url('about-sirs')}}" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">About SIRS</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">Mission & Vision</a>
+                                <a href="{{url('vision-and-mission')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Mission & Vision</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">Leadership</a>
+                                <a href="{{url('leadership')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Leadership</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">Principal's Desk</a>
+                                <a href="{{url('principals-desk')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Principal's Desk</a>
                             </li>
                         </ul>
                     </div>

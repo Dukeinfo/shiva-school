@@ -1,13 +1,13 @@
 <div>
 <!-- Main Content -->
-   <section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
+<section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
     <div class="opacity-full bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row align-items-stretch justify-content-center small-screen">
             <div class="col-12 col-xl-8 col-lg-8 col-md-8 position-relative page-title-extra-small text-center d-flex justify-content-center flex-column">
                 <h1 class="alt-font text-orange margin-20px-bottom text-uppercase">Explore SIRS</h1>
                 <h2 class="alt-font font-weight-700 title-large text-shadow-double-large text-white text-uppercase mb-0 letter-spacing-minus-4px margin-4-half-rem-bottom sm-no-text-shadow sm-letter-spacing-minus-1-half">
-                    <span class="text-border text-border-width-2px">SIRS</span><br /> Gallery
+                    <span class="text-border text-border-width-2px">News</span><br /> Events
                 </h2>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <ul>
                     <li><a href="{{url('/')}}">Home</a></li>
                     <li><a href="javascript:void()">Explore SIRS</a></li>
-                    <li>Gallery</li>
+                    <li>News Events</li>
                 </ul>
             </div>
         </div>
@@ -50,13 +50,13 @@
                                 <a href="{{url('/blogs')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Blogs</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="{{url('/news')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">News</a>
+                                <a href="{{url('/news-event')}}" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">News</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="{{url('/events')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Events</a>
+                                <a href="{{url('/news-event')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Events</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="{{url('/gallery')}}" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">Gallery</a>
+                                <a href="{{url('/gallery')}}" class="btn btn-large btn-transparent-royal-light-gray  w-100">Gallery</a>
                             </li>
                         </ul>
                     </div>
@@ -84,6 +84,11 @@
  <button type="button" class="btn btn-primary btn-lg btn-block" wire:click="loadMore">Load More</button>
  @endif
                 </div>
+           @if(count($news)==0)  
+          <center><div class="alert alert-warning">
+          <strong>Sorry!</strong> No Record Found.
+          </div>    
+           @endif
             </div>
         </div>
     </div>

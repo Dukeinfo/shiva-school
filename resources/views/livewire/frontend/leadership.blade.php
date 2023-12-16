@@ -1,12 +1,12 @@
  <!-- Main Content -->
-     <section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
+<section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
     <div class="opacity-full bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row align-items-stretch justify-content-center small-screen">
             <div class="col-12 col-xl-8 col-lg-8 col-md-8 position-relative page-title-extra-small text-center d-flex justify-content-center flex-column">
-                <h1 class="alt-font text-orange margin-20px-bottom text-uppercase">OUR SCHOOL</h1>
+                <h1 class="alt-font text-orange margin-20px-bottom text-uppercase">Our School</h1>
                 <h2 class="alt-font font-weight-700 title-large text-shadow-double-large text-white text-uppercase mb-0 letter-spacing-minus-4px margin-4-half-rem-bottom sm-no-text-shadow sm-letter-spacing-minus-1-half">
-                    <span class="text-border text-border-width-2px">SIRS</span><br />LeaderShip 
+                    <span class="text-border text-border-width-2px">SIRS</span><br /> Residential School
                 </h2>
             </div>
         </div>
@@ -46,16 +46,16 @@
 
                         <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray my-4">
                             <li class="padding-5px-bottom">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">About SIRS</a>
+                                <a href="{{url('about-sirs')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">About SIRS</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">Mission & Vision</a>
+                                <a href="{{url('vision-and-mission')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Mission & Vision</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">Leadership</a>
+                                <a href="{{url('leadership')}}" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">Leadership</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="javascript:void()" class="btn btn-large btn-transparent-royal-light-gray w-100">Principal's Desk</a>
+                                <a href="{{url('principals-desk')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Principal's Desk</a>
                             </li>
                         </ul>
                     </div>

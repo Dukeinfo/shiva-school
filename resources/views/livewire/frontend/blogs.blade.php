@@ -50,10 +50,10 @@
                                 <a href="{{url('/blogs')}}" class="btn btn-large btn-transparent-royal-light-gray btn-active w-100">Blogs</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="{{url('/news')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">News</a>
+                                <a href="{{url('/news-event')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">News</a>
                             </li>
                             <li class="padding-5px-tb">
-                                <a href="{{url('/events')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Events</a>
+                                <a href="{{url('/news-event')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Events</a>
                             </li>
                             <li class="padding-5px-tb">
                                 <a href="{{url('/gallery')}}" class="btn btn-large btn-transparent-royal-light-gray w-100">Gallery</a>
@@ -85,39 +85,21 @@
                             <!-- end services item -->
          @endforeach 
            @else                 
-                            <!-- start services item -->
-                            <div class="col margin-30px-bottom xs-margin-15px-bottom wow animate__fadeIn">
-                                <a href="{{url('/blog-detail')}}"><img src="assets/images/blog2.jpg" alt="" /></a>
-                                <div class="position-relative bg-white padding-3-half-rem-all box-shadow-small">
-                                    <div class="bg-orange text-small alt-font text-white text-uppercase position-absolute font-weight-500 top-minus-15px right-0px padding-5px-tb padding-20px-lr">19 Sep, 2023</div>
-                                    <span class="alt-font font-weight-600 text-extra-medium text-extra-dark-gray d-block margin-10px-bottom">Blog Title 2 Lorem Ipsum</span>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat facilis odit voluptatem saepe recusandae!</p>
-                                    <div class="w-100 h-1px bg-medium-light-gray margin-20px-bottom d-inline-block"></div>
-                                    <a class="alt-font font-weight-600 text-small text-extra-dark-gray text-salmon-rose-hover text-uppercase d-flex align-items-center" href="{{url('/blog-detail')}}">Read More<i class="feather icon-feather-arrow-right icon-extra-small ms-auto"></i></a>
-                                </div>
-                            </div>
-                            <!-- end services item -->
-                            <!-- start services item -->
-                            <div class="col margin-30px-bottom xs-margin-15px-bottom wow animate__fadeIn">
-                                <a href="{{url('/blog-detail')}}"><img src="assets/images/blog3.jpg" alt="" /></a>
-                                <div class="position-relative bg-white padding-3-half-rem-all box-shadow-small">
-                                    <div class="bg-orange text-small alt-font text-white text-uppercase position-absolute font-weight-500 top-minus-15px right-0px padding-5px-tb padding-20px-lr">18 Sep, 2023</div>
-                                    <span class="alt-font font-weight-600 text-extra-medium text-extra-dark-gray d-block margin-10px-bottom">Blog Title 3 Lorem Ipsum</span>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis cumque delectus enim quas voluptates!</p>
-                                    <div class="w-100 h-1px bg-medium-light-gray margin-20px-bottom d-inline-block"></div>
-                                    <a class="alt-font font-weight-600 text-small text-extra-dark-gray text-salmon-rose-hover text-uppercase d-flex align-items-center" href="{{url('/blog-detail')}}">Read More<i class="feather icon-feather-arrow-right icon-extra-small ms-auto"></i></a>
-                                </div>
-                            </div>
-                            <!-- end services item -->
+                            <!-- you cn set default data here -->
                       @endif        
                         </div>
-                        <!-- start pagination -->
-                             @if(count($blogs)!=count($total))
+<!-- start pagination -->
+ @if(count($blogs)!=count($total))
  <button type="button" class="btn btn-primary btn-lg btn-block" wire:click="loadMore">Load More</button>
  @endif
-                        <!-- end pagination -->
+<!-- end pagination -->
                     </div>
                 </div>
+                  @if(count($blogs)==0)  
+          <center><div class="alert alert-warning">
+          <strong>Sorry!</strong> No Record Found.
+          </div>    
+           @endif
             </div>
         </div>
     </div>

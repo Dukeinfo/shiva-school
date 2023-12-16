@@ -1,6 +1,6 @@
 <div>
      <!-- Main Content -->
-    <section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
+<section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('assets/images/header_bg.jpg');">
     <div class="opacity-full bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row align-items-stretch justify-content-center small-screen">
