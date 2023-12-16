@@ -17,6 +17,7 @@ use App\Http\Livewire\Frontend\PrincipalsDesk;
 use App\Http\Livewire\Frontend\VisionAndMission;
 use App\Http\Livewire\Frontend\Leadership;
 use App\Http\Livewire\Frontend\NewsEvents;
+use App\Http\Livewire\Frontend\NewsEventDetail;
 
 use App\Http\Livewire\Backend\AdminDashboard;
 use App\Http\Livewire\Backend\Admissions\AdmissionsInquery;
@@ -213,6 +214,7 @@ Route::get('/principals-desk', PrincipalsDesk::class)->name('home.principals_des
 Route::get('/vision-and-mission', VisionAndMission::class)->name('home.vision_and_mission');
 Route::get('/leadership', Leadership::class)->name('home.leadership');
 Route::get('/news-event', NewsEvents::class)->name('home.news_event');
+Route::get('/news-event-detail/{news_id}', NewsEventDetail::class)->name('news-event-detail');
 });
 
 

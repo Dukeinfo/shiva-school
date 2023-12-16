@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-xl-8 col-lg-6 text-center text-lg-start">
-                <h1 class="alt-font text-extra-dark-gray font-weight-500 no-margin-bottom d-inline-block">Gallery
+                <h1 class="alt-font text-extra-dark-gray font-weight-500 no-margin-bottom d-inline-block">News Event
                 </h1>
             </div>
             <div class="col-xl-4 col-lg-6 text-center text-lg-end breadcrumb justify-content-center justify-content-lg-end text-small alt-font md-margin-15px-top">
@@ -69,7 +69,7 @@
               @if(isset($news) && count($news)>0  )
                       @foreach($news as $key => $event)
                             <div class="col margin-30px-bottom xs-margin-15px-bottom wow animate__fadeIn">
-                                <a href="{{url('/gallery-detail')}}"><img src="{{ getboardmembers($event->image ) ?? '' }}" alt="" /></a>
+                                <a href="{{url('/news-event-detail')}}/{{$event->id}}"><img src="{{ getboardmembers($event->image ) ?? '' }}" alt="" /></a>
                                 <div class="position-relative bg-white padding-2-half-rem-all border">
                                     <span class="alt-font font-weight-600 text-extra-medium text-extra-dark-gray d-block margin-10px-bottom">{{$event->heading}}</span>
                                     {!!Str::limit($event->description, 164) ?? ''!!}
